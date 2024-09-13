@@ -11,8 +11,14 @@ while true; do
     newMaxFeeRate=$input_gas
     response=$(curl -s https://mempool.fractalbitcoin.io/api/v1/fees/mempool-blocks)
     feeRangeFee=$(echo $response | jq '.[0].feeRange | .[2]') # 倒数第四档
-    fastestFee=$(echo "scale=0; ($feeRangeFee+0.999)/1" | bc)
-    echo -e "当前实时gas为: $fastestFee"
+    fastestFee=$(echo "scale=0; ($feeRangeFee*1.1+0.999)/1" | bc)
+    
+    if [ $fastestFee -le 800 ]; then
+        echo -e "小于800,取第三个参数:$fastestFee"
+        feeRangeFee=$(echo $response | jq '.[0].feeRange | .[3]') # 倒数第四档
+        fastestFee=$(echo "scale=0; ($feeRangeFee*1.1+0.999)/1" | bc)
+    fi 
+    echo -e "内存池第一个块第2/3个参数实时gas为: $fastestFee"
     
     if [ $newMaxFeeRate -le 0 ]; then
         # 小于等于0
@@ -24,10 +30,7 @@ while true; do
         fi  
     fi
     newMaxFeeRate=$fastestFee
-    if [ $newMaxFeeRate -le 800 ]; then
-        echo -e "基本不存在小于800的情况。小于800就不打:$newMaxFeeRate"
-        continue
-    fi 
+    
     echo -e "实际给的gas为: $newMaxFeeRate"
     command="yarn cli mint -i 45ee725c2c5993b3e4d308842d87e973bf1951f5f7a804b21e4dd964ecd12d6b_0 5 --fee-rate $newMaxFeeRate"
     $command
