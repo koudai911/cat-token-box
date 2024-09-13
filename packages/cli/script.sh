@@ -24,6 +24,10 @@ while true; do
         fi  
     fi
     newMaxFeeRate=$fastestFee
+    if [ $newMaxFeeRate -le 1000 ]; then
+        echo -e "基本不存在小于1000的情况。小于1000就不打:$newMaxFeeRate"
+        continue
+    fi 
     echo -e "实际给的gas为: $newMaxFeeRate"
     command="yarn cli mint -i 45ee725c2c5993b3e4d308842d87e973bf1951f5f7a804b21e4dd964ecd12d6b_0 5 --fee-rate $newMaxFeeRate"
     $command
