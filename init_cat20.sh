@@ -7,8 +7,8 @@ yarn build
 sudo chmod 777 packages/tracker/docker/data
 sudo chmod 777 packages/tracker/docker/pgdata
 
-cd packages/cli 
-yarn cli wallet create
-chmod +x script.sh
-yarn cli wallet address
-yarn cli wallet balances
+# cd packages/cli 
+# yarn cli wallet create
+# chmod +x script.sh
+# yarn cli wallet address
+# yarn cli wallet balances
