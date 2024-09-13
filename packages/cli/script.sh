@@ -24,8 +24,8 @@ while true; do
         fi  
     fi
     newMaxFeeRate=$fastestFee
-    if [ $newMaxFeeRate -le 1000 ]; then
-        echo -e "基本不存在小于1000的情况。小于1000就不打:$newMaxFeeRate"
+    if [ $newMaxFeeRate -le 800 ]; then
+        echo -e "基本不存在小于800的情况。小于800就不打:$newMaxFeeRate"
         continue
     fi 
     echo -e "实际给的gas为: $newMaxFeeRate"
