@@ -10,7 +10,7 @@ fi
 while true; do
     newMaxFeeRate=$input_gas
     response=$(curl -s https://mempool.fractalbitcoin.io/api/v1/fees/mempool-blocks)
-    feeRangeFee=$(echo $response | jq '.[0].feeRange | .[-3]') # 倒数第四档
+    feeRangeFee=$(echo $response | jq '.[0].feeRange | .[2]') # 倒数第四档
     fastestFee=$(echo "scale=0; ($feeRangeFee+0.999)/1" | bc)
     echo -e "当前实时gas为: $fastestFee"
     
