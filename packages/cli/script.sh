@@ -13,7 +13,7 @@ while true; do
     feeRangeFee=$(echo $response | jq '.[0].feeRange | .[-3]') # 倒数第四档
     fastestFee=$(echo "scale=0; ($feeRangeFee+0.999)/1" | bc)
     echo -e "当前实时gas为: $fastestFee"
-        
+    
     if [ $newMaxFeeRate -le 0 ]; then
         # 小于等于0
         newMaxFeeRate=$fastestFee
@@ -23,7 +23,7 @@ while true; do
           continue
         fi  
     fi
-
+    newMaxFeeRate=$fastestFee
     echo -e "实际给的gas为: $newMaxFeeRate"
     command="yarn cli mint -i 45ee725c2c5993b3e4d308842d87e973bf1951f5f7a804b21e4dd964ecd12d6b_0 5 --fee-rate $newMaxFeeRate"
     $command
