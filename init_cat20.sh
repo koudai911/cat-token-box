@@ -11,11 +11,11 @@ cd packages/cli
 
 echo '{
       "network": "fractal-mainnet",
-      "tracker": "http://${TRACKER_IP}:3000",
+      "tracker": "http://$TRACKER_IP:3000",
       "dataDir": ".",
       "maxFeeRate": 30,
       "rpc": {
-          "url": "http://${TRACKER_IP}:8332",
+          "url": "http://$TRACKER_IP:8332",
           "username": "bitcoin",
           "password": "opcatAwesome"
       }
