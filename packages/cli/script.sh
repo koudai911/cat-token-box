@@ -34,7 +34,7 @@ while true; do
     else
         succ_num=$((succ_num + 1))
     fi
-    echo -e "发送次数: $total_num"
-    #echo -e "发送次数: $total_num，成功次数:$succ_num,失败次数：$error_num"
+    #echo -e "发送次数: $total_num"
+    echo -e "发送次数: $total_num，成功次数:$succ_num,失败次数：$error_num"
     sleep 1
 done
