@@ -1,4 +1,4 @@
-tracker_ip=${1}
+TRACKER_IP="$1"
 cd ~
 git clone https://github.com/koudai911/cat-token-box.git
 cd cat-token-box
@@ -11,11 +11,11 @@ cd packages/cli
 
 echo '{
       "network": "fractal-mainnet",
-      "tracker": "http://${tracker_ip}:3000",
+      "tracker": "http://${TRACKER_IP}:3000",
       "dataDir": ".",
       "maxFeeRate": 30,
       "rpc": {
-          "url": "http://${tracker_ip}:8332",
+          "url": "http://${TRACKER_IP}:8332",
           "username": "bitcoin",
           "password": "opcatAwesome"
       }
