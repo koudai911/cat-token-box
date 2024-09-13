@@ -26,7 +26,7 @@ while true; do
 
     echo -e "实际给的gas为: $newMaxFeeRate"
     command="yarn cli mint -i 45ee725c2c5993b3e4d308842d87e973bf1951f5f7a804b21e4dd964ecd12d6b_0 5 --fee-rate $newMaxFeeRate"
-    $command &
+    $command
     total_num=$((total_num + 1))
     if [ $? -ne 0 ]; then
         echo "命令执行失败"
