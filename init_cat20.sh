@@ -12,3 +12,4 @@ sudo chmod 777 packages/tracker/docker/pgdata
 # chmod +x script.sh
 # yarn cli wallet address
 # yarn cli wallet balances
+# yarn cli wallet export
