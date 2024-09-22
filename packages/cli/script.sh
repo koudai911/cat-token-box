@@ -11,12 +11,12 @@ while true; do
     newMaxFeeRate=$input_gas
     response=$(curl -s https://mempool.fractalbitcoin.io/api/v1/fees/mempool-blocks)
     feeRangeFee=$(echo $response | jq '.[0].feeRange | .[2]') # 倒数第四档
-    fastestFee=$(echo "scale=0; ($feeRangeFee*1.1+0.999)/1" | bc)
+    fastestFee=$(echo "scale=0; ($feeRangeFee*1.02+0.999)/1" | bc)
     
     if [ $fastestFee -le 200 ]; then
         echo -e "小于200,取第三个参数:$fastestFee"
         feeRangeFee=$(echo $response | jq '.[0].feeRange | .[3]') # 倒数第四档
-        fastestFee=$(echo "scale=0; ($feeRangeFee*1.1+0.999)/1" | bc)
+        fastestFee=$(echo "scale=0; ($feeRangeFee*1.02+0.999)/1" | bc)
     fi 
     echo -e "内存池第一个块第2/3个参数实时gas为: $fastestFee"
     
