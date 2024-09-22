@@ -32,7 +32,7 @@ while true; do
     newMaxFeeRate=$fastestFee
     
     echo -e "实际给的gas为: $newMaxFeeRate"
-    command="yarn cli mint -i 45ee725c2c5993b3e4d308842d87e973bf1951f5f7a804b21e4dd964ecd12d6b_0 5 --fee-rate $newMaxFeeRate"
+    command="yarn cli mint -i 59d566844f434e419bf5b21b5c601745fcaaa24482b8d68f32b2582c61a95af2_0 10 --fee-rate $newMaxFeeRate"
     $command
     total_num=$((total_num + 1))
     if [ $? -ne 0 ]; then
