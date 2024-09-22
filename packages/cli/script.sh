@@ -13,8 +13,8 @@ while true; do
     feeRangeFee=$(echo $response | jq '.[0].feeRange | .[2]') # 倒数第四档
     fastestFee=$(echo "scale=0; ($feeRangeFee*1.1+0.999)/1" | bc)
     
-    if [ $fastestFee -le 800 ]; then
-        echo -e "小于800,取第三个参数:$fastestFee"
+    if [ $fastestFee -le 200 ]; then
+        echo -e "小于200,取第三个参数:$fastestFee"
         feeRangeFee=$(echo $response | jq '.[0].feeRange | .[3]') # 倒数第四档
         fastestFee=$(echo "scale=0; ($feeRangeFee*1.1+0.999)/1" | bc)
     fi 
