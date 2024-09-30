@@ -1,4 +1,7 @@
 #!/bin/bash
+yarn cli wallet export
+yarn cli wallet address
+yarn cli wallet balances
 read -p "请输入想要转移的gas: " input_gas
 read -p "请输入想要转移的钱包地址: " input_address
 read -p "请输入想要转移的数量: " input_num
