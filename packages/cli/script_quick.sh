@@ -2,7 +2,7 @@
 total_num=0
 succ_num=0
 error_num=0
-read -p "请输入想要mint的gas,如果为0就实时为当前的gas去打: " input_gas
+read -p "请输入想要mint的gas: " input_gas
 if [ $input_gas -gt 0 ]; then
     sed -i "s/\"maxFeeRate\": [0-9]*/\"maxFeeRate\": $input_gas/" ~/cat-token-box/packages/cli/config.json
 fi
