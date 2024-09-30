@@ -12,7 +12,7 @@ fi
 while true; do
     newMaxFeeRate=$input_gas
     echo -e "实际给的gas为: $newMaxFeeRate"
-    yarn cli send -i c468e99ac3b533e503eac5ccf4f0e3362772f80cead8b7f71d802305d02f73d0_0 $input_address input_num --fee-rate $newMaxFeeRate
+    command="yarn cli send -i c468e99ac3b533e503eac5ccf4f0e3362772f80cead8b7f71d802305d02f73d0_0 $input_address input_num --fee-rate $newMaxFeeRate"
     $command
     total_num=$((total_num + 1))
     if [ $? -ne 0 ]; then
