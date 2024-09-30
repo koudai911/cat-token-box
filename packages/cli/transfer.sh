@@ -11,7 +11,7 @@ fi
   
 newMaxFeeRate=$input_gas
 echo -e "实际给的gas为: $newMaxFeeRate"
-command="yarn cli send -i c468e99ac3b533e503eac5ccf4f0e3362772f80cead8b7f71d802305d02f73d0_0 $input_address $input_num --fee-rate $newMaxFeeRate"
+command="yarn cli send -i 59d566844f434e419bf5b21b5c601745fcaaa24482b8d68f32b2582c61a95af2_0 $input_address $input_num --fee-rate $newMaxFeeRate"
 $command
 
 
