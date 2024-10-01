@@ -10,7 +10,7 @@ fi
 while true; do
     newMaxFeeRate=$input_gas
     echo -e "实际给的gas为: $newMaxFeeRate"
-    command="yarn cli mint -i 59d566844f434e419bf5b21b5c601745fcaaa24482b8d68f32b2582c61a95af2_0 10 --fee-rate $newMaxFeeRate"
+    command="yarn cli mint -i 028ae179783cd237f475ca1a58d5c8b3ecec3884862d337971fc168d5e92c16e_0 10 --fee-rate $newMaxFeeRate"
     # command="yarn cli mint -i c468e99ac3b533e503eac5ccf4f0e3362772f80cead8b7f71d802305d02f73d0_0 3 --fee-rate $newMaxFeeRate"
     $command
     total_num=$((total_num + 1))
